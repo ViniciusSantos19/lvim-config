@@ -4,6 +4,9 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+
 -- modo normal
 map("n", "<C-s>", ":w<CR>", opts)
 map("n", "<C-q>", ":q!<CR>", opts)
@@ -33,11 +36,18 @@ lvim.plugins = {
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 	{ "olimorris/onedarkpro.nvim" },
 	{
 		"nvim-java/nvim-java",
 		dependencies = {
 			"nvim-java/lua-async-await",
+			"nvim-java/nvim-java-refactor",
 			"nvim-java/nvim-java-core",
 			"nvim-java/nvim-java-test",
 			"nvim-java/nvim-java-dap",
